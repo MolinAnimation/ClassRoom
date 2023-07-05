@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.StringJoiner;
 
 public class Aula {
     private static int countId = 1;
@@ -9,10 +10,11 @@ public class Aula {
     private int totalStudents = 0;
     private boolean works = false;
     private Profesor profesor;
+    protected int profesorId;
     public Estudiante student;
-    ArrayList<Integer> estudiantes = new ArrayList<>();
+    ArrayList<Estudiante> estudiantes = new ArrayList<>();
 
-    public void addStudent(Integer student) {
+    public void addStudent(Estudiante student) {
         estudiantes.add(student);
         totalStudents++;
     }
@@ -45,6 +47,7 @@ public class Aula {
     }
 
     public boolean setWorks() {
+
         if ((profesor.materiaAsignada == this.materiaDestinada)
                 && ((totalStudents <= maxStudents) && (totalStudents >= (maxStudents / 2)))
                 && (profesor.isAvailable())) {
@@ -55,5 +58,26 @@ public class Aula {
 
     public boolean getWorks() {
         return works;
+    }
+
+    public void setTeacher(Profesor profesor) {
+        this.profesor = profesor;
+    }
+
+    public String getApprovedStudents() {
+        ArrayList<Integer> approvedStudents = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        if (works) {
+
+            for (Estudiante std : estudiantes) {
+                if (std.getScore() >= 6) {
+                    approvedStudents.add(std.getId());
+                }
+            }
+            for (Integer aS : approvedStudents) {
+                sb.append(aS);
+            }
+        }
+        return sb.toString();
     }
 }

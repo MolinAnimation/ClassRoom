@@ -32,6 +32,7 @@ public class Estudiante extends Persona implements Disponibilidad {
 
     @override
     public void setAula() {
-        aula.addStudent(this.getId());
+        aula.addStudent(this);
+        this.aulaId = aula.getId();
     }
 }

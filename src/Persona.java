@@ -6,6 +6,7 @@ public abstract class Persona {
     protected boolean available;
     protected Aula aula;
     protected int id;
+    protected int aulaId;
 
     public abstract void setAula();
 
@@ -31,18 +32,6 @@ public abstract class Persona {
 
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public boolean isAvailable() {
-        return this.available;
-    }
-
-    public boolean getAvailable() {
-        return this.available;
-    }
-
-    public void setAvailable(boolean available) {
-        this.available = available;
     }
 
     public Aula getAula() {

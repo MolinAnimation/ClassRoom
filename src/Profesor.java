@@ -31,6 +31,7 @@ public class Profesor extends Persona implements Disponibilidad {
 
     @override
     public void setAula() {
-
+        aula.setTeacher(this);
+        this.aulaId = aula.getId();
     }
 }
